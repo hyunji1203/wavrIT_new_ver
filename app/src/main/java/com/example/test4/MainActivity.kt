@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when(item.itemId) {
 
             R.id.action_home -> {
-                toolbar_text.text = "어플 이름"
+                toolbar_text.text = "여기로와"
 
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, HomeFragment())
