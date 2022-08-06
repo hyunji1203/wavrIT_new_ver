@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695660504220",
+    "project_id": "waveit-test",
+    "storage_bucket": "waveit-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695660504220:android:350cdac68a39d201753959",
+        "android_client_info": {
+          "package_name": "com.example.test4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695660504220-5sbe2um312e92aebjl8i9jlvufth796t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSBOzmsRcbmOTSLwKc6YSA5C9BhfxOris"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695660504220-5sbe2um312e92aebjl8i9jlvufth796t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
