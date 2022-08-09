@@ -13,12 +13,14 @@ import androidx.viewpager.widget.ViewPager
 class MagazineFragment : Fragment() {
 
     lateinit var ourtown_btn : ImageButton
+    lateinit var job_btn : ImageButton
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_magazine, container, false)
 
         ourtown_btn = view.findViewById(R.id.ourtown_btn)
+        job_btn = view.findViewById(R.id.job_btn)
 
         // viewpager 어댑터
         val viewPager_magazine = view.findViewById<ViewPager>(R.id.viewPager_magazine)
@@ -37,6 +39,11 @@ class MagazineFragment : Fragment() {
         ourtown_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frameLayout, ourtownFragment())
+            transaction?.commit()
+        }
+        job_btn.setOnClickListener {
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, jobFragment())
             transaction?.commit()
         }
 
