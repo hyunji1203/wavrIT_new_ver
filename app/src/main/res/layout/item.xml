@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageurl"
+                android:id="@+id/image"
                 android:layout_width="393dp"
                 android:layout_height="212dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,6 @@
                 android:id="@+id/title_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="title_ex"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +56,6 @@
                 android:id="@+id/imageurl_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="imageurl_ex"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:visibility="gone" />
@@ -66,7 +64,6 @@
                 android:id="@+id/content_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:visibility="gone" />

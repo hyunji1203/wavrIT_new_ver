@@ -40,7 +40,6 @@
                 android:id="@+id/title_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="title_ex"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +49,6 @@
                 android:id="@+id/imageurl_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="imageurl_ex"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:visibility="gone" />
@@ -59,9 +57,19 @@
                 android:id="@+id/content_ex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic"
                 tools:visibility="gone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
