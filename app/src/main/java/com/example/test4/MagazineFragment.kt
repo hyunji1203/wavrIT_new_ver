@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
+import com.example.test4.magazine.*
 
 class MagazineFragment : Fragment() {
 
     lateinit var ourtown_btn : ImageButton
     lateinit var job_btn : ImageButton
+    lateinit var health_btn : ImageButton
+    lateinit var activity_btn : ImageButton
+    lateinit var knowledge_btn : ImageButton
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -21,6 +25,9 @@ class MagazineFragment : Fragment() {
 
         ourtown_btn = view.findViewById(R.id.ourtown_btn)
         job_btn = view.findViewById(R.id.job_btn)
+        health_btn = view.findViewById(R.id.health_btn)
+        activity_btn = view.findViewById(R.id.activity_btn)
+        knowledge_btn = view.findViewById(R.id.knowledge_btn)
 
         // viewpager 어댑터
         val viewPager_magazine = view.findViewById<ViewPager>(R.id.viewPager_magazine)
@@ -44,6 +51,21 @@ class MagazineFragment : Fragment() {
         job_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frameLayout, jobFragment())
+            transaction?.commit()
+        }
+        activity_btn.setOnClickListener {
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, activityFragment())
+            transaction?.commit()
+        }
+        health_btn.setOnClickListener {
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, healthFragment())
+            transaction?.commit()
+        }
+        knowledge_btn.setOnClickListener {
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, knowledgeFragment())
             transaction?.commit()
         }
 

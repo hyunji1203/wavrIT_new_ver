@@ -1,14 +1,15 @@
-package com.example.test4
+package com.example.test4.adapter.firebase
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.test4.Data
 
-class ListViewModel  : ViewModel() {
+class ListViewModel_h   : ViewModel() {
 
-    private val repo = Repo()
+    private val repo = Repo_h()
 
-    fun fetchData(): LiveData<MutableList<Data>> {
+    fun fetchData_h(): LiveData<MutableList<Data>> {
 
         val mutableData = MutableLiveData<MutableList<Data>>()
 
