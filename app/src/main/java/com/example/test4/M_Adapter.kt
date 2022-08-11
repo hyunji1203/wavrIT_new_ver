@@ -1,11 +1,13 @@
 package com.example.test4
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,7 +34,16 @@ class M_Adapter (private val context: jobFragment): RecyclerView.Adapter<M_Adapt
                 )
                 ViewHolder(view2).apply {
                     itemView.setOnClickListener {
+                        var mContentfragment = m_contentFragment()
+                        var bundle = Bundle()
+                        bundle.putString("title", title_ex.text.toString())
+                        bundle.putString("content", content_ex.text.toString())
+                        bundle.putString("imageurl", imageurl.text.toString())
+                        mContentfragment.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
 
+                        context.activity?.supportFragmentManager!!.beginTransaction()
+                            .replace(R.id.frameLayout, mContentfragment)
+                            .commit()
                     }
                 }
             }
@@ -45,6 +56,16 @@ class M_Adapter (private val context: jobFragment): RecyclerView.Adapter<M_Adapt
                 ViewHolder(view1).apply {
                     itemView.setOnClickListener {
 
+                        var mContentfragment = m_contentFragment()
+                        var bundle = Bundle()
+                        bundle.putString("title", title_ex.text.toString())
+                        bundle.putString("content", content_ex.text.toString())
+                        bundle.putString("imageurl", imageurl.text.toString())
+                        mContentfragment.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
+
+                        context.activity?.supportFragmentManager!!.beginTransaction()
+                            .replace(R.id.frameLayout, mContentfragment)
+                            .commit()
                     }
                 }
             }
@@ -54,10 +75,10 @@ class M_Adapter (private val context: jobFragment): RecyclerView.Adapter<M_Adapt
     override fun onBindViewHolder(holder: M_Adapter.ViewHolder, position: Int) {
         val job : Data = jobList[position]
 
-        //holder.title_ex.text = job.title
-        //holder.content_ex.text = job.content
+        holder.title_ex.text = job.title
+        holder.content_ex.text = job.content
         holder.summary.text = job.summary
-        //holder.imageurl.text = job.imageurl
+        holder.imageurl.text = job.imageurl
 
         Glide.with(holder.itemView)
             .load(job.imageurl)
@@ -69,10 +90,10 @@ class M_Adapter (private val context: jobFragment): RecyclerView.Adapter<M_Adapt
     }
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        //val title_ex : TextView = itemView.findViewById(R.id.title_ex)
-        //val content_ex : TextView = itemView.findViewById(R.id.content_ex)
+        val title_ex : TextView = itemView.findViewById(R.id.title_ex)
+        val content_ex : TextView = itemView.findViewById(R.id.content_ex)
         val summary : TextView = itemView.findViewById(R.id.summary)
-        //val imageurl : TextView = itemView.findViewById(R.id.imageurl_ex)
+        val imageurl : TextView = itemView.findViewById(R.id.imageurl_ex)
         val image : ImageView = itemView.findViewById(R.id.image)
     }
     override fun getItemViewType(position: Int): Int {
