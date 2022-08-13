@@ -15,7 +15,7 @@ import com.example.test4.R
 import com.example.test4.adapter.Mh_Adapter
 import com.example.test4.adapter.firebase.ListViewModel_h
 
-class healthFragment : Fragment() {
+class HealthFragment : Fragment() {
 
     private lateinit var mh_adapter : Mh_Adapter
 

@@ -15,7 +15,7 @@ import com.example.test4.R
 import com.example.test4.adapter.Mk_Adapter
 import com.example.test4.adapter.firebase.ListViewModel_k
 
-class knowledgeFragment : Fragment() {
+class KnowledgeFragment : Fragment() {
 
     private lateinit var mk_adapter : Mk_Adapter
 

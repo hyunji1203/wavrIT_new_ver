@@ -15,7 +15,7 @@ import com.example.test4.R
 import com.example.test4.adapter.Ma_Adapter
 import com.example.test4.adapter.firebase.ListViewModel_a
 
-class activityFragment : Fragment() {
+class ActivityFragment : Fragment() {
 
     private lateinit var ma_adapter : Ma_Adapter
 

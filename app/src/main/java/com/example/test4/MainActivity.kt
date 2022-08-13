@@ -1,15 +1,17 @@
 package com.example.test4
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
+import android.view.View
+import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-
-    lateinit var toolbar_text : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +42,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item!!.itemId) {
-//            R.id.action_sidemenu -> {
-//
-//
-//            }
+            R.id.action_search -> {
+                var intent = Intent(this, com.example.test4.search.SearchActivity::class.java)
+
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -53,24 +56,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when(item.itemId) {
 
             R.id.action_home -> {
-                //toolbar_text.text = "여기로와"
-
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, HomeFragment())
                 transaction.commit()
                 return true
             }
-            R.id.action_consumption -> {
-                //toolbar_text.text = "여기로와"
-
+            R.id.action_magazine -> {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, MagazineFragment())
                 transaction.commit()
                 return true
             }
-            R.id.action_trade -> {
-                //toolbar_text.text = "여기로와"
-
+            R.id.action_community -> {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, CommunityFragment())
                 transaction.commit()

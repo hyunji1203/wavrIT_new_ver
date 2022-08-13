@@ -47,27 +47,27 @@ class MagazineFragment : Fragment() {
 
         ourtown_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, ourtownFragment())
+            transaction?.replace(R.id.frameLayout, OurtownFragment())
             transaction?.commit()
         }
         job_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, jobFragment())
+            transaction?.replace(R.id.frameLayout, JobFragment())
             transaction?.commit()
         }
         activity_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, activityFragment())
+            transaction?.replace(R.id.frameLayout, ActivityFragment())
             transaction?.commit()
         }
         health_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, healthFragment())
+            transaction?.replace(R.id.frameLayout, HealthFragment())
             transaction?.commit()
         }
         knowledge_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, knowledgeFragment())
+            transaction?.replace(R.id.frameLayout, KnowledgeFragment())
             transaction?.commit()
         }
 

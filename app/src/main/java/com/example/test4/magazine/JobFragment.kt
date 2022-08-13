@@ -14,7 +14,7 @@ import com.example.test4.adapter.firebase.ListViewModel
 import com.example.test4.adapter.Mj_Adapter
 import com.example.test4.R
 
-class jobFragment : Fragment() {
+class JobFragment : Fragment() {
 
     private lateinit var mj_adapter : Mj_Adapter
 
