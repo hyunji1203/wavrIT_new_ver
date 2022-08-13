@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
 
         // 커스텀 툴바 사용
-        toolbar_text = findViewById(R.id.toolbar_text)
+        //toolbar_text = findViewById(R.id.toolbar_text)
         setSupportActionBar(findViewById(R.id.toolBar))
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when(item.itemId) {
 
             R.id.action_home -> {
-                toolbar_text.text = "여기로와"
+                //toolbar_text.text = "여기로와"
 
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, HomeFragment())
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.action_consumption -> {
-                toolbar_text.text = "매거진"
+                //toolbar_text.text = "여기로와"
 
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, MagazineFragment())
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.action_trade -> {
-                toolbar_text.text = "커뮤니티"
+                //toolbar_text.text = "여기로와"
 
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frameLayout, CommunityFragment())
