@@ -1,9 +1,12 @@
-package com.example.test4
+package com.example.test4.adapter
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.test4.Magazine_firstFragment
+import com.example.test4.Magazine_secondFragment
+import com.example.test4.Magazine_thirdFragment
 
 class ViewPagerAdapter_magazine (fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 

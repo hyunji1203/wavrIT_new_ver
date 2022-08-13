@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.viewpager2.widget.ViewPager2
-import com.example.test4.adapter.ViewPagerAdapter
+import com.example.test4.adapter.ViewPagerAdapter_community
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -22,7 +22,7 @@ class CommunityFragment : Fragment() {
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
         val viewPager2= view.findViewById<ViewPager2>(R.id.view_pager_2)
 
-        val adapter= ViewPagerAdapter(activity?.supportFragmentManager!!,lifecycle)
+        val adapter= ViewPagerAdapter_community(activity?.supportFragmentManager!!,lifecycle)
 
         viewPager2.adapter=adapter
 

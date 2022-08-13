@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
+import com.example.test4.adapter.ViewPagerAdapter_magazine
 import com.example.test4.magazine.*
 
 class MagazineFragment : Fragment() {
