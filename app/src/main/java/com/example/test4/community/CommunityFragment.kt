@@ -1,4 +1,4 @@
-package com.example.test4
+package com.example.test4.community
 
 import android.os.Build
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.viewpager2.widget.ViewPager2
+import com.example.test4.R
 import com.example.test4.adapter.ViewPagerAdapter_community
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
