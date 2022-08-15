@@ -21,25 +21,36 @@ class searchAdapter  (val search_List : ArrayList<search_data>) : RecyclerView.A
 
         return CustomViewHolder(view).apply {
 
-            //아이템 클릭 시 해당 장학금의 이름이 상세설명 창으로 넘어가도록 intent이용하는 코드 작성
             itemView.setOnClickListener {
                 val curPos : Int = adapterPosition
-                val word : search_data = search_List.get(curPos)
+                val s_data : search_data = search_List.get(curPos)
 
+                var word = s_data.word
 
+                dbManager = DBManager(view.context, "search_history", null, 1)
+                sqlitedb = dbManager.writableDatabase
+
+                //눌러진 아이템의 이름을 받아와 데이터 베이스에서 그 이름을 삭제하고 알람을 해제함
+                sqlitedb.execSQL("DELETE FROM search_history WHERE word = '"+ word +"';")
+
+                sqlitedb.close()
+                dbManager.close()
+
+                var intent = Intent(view.context, SearchActivity::class.java)
+                view.context.startActivity(intent)
             }
         }
     }
 
     override fun onBindViewHolder(holder: searchAdapter.CustomViewHolder, position: Int) {
-        holder.word.text = search_List.get(position).word
+        holder.s_history.text = search_List.get(position).word
         holder.count.text = search_List.get(position).count.toString()
     }
 
 
     class CustomViewHolder (itemVIew : View) : RecyclerView.ViewHolder(itemVIew) {
 
-        val word = itemVIew.findViewById<TextView>(R.id.word)
+        val s_history = itemVIew.findViewById<TextView>(R.id.s_history)
         val count = itemVIew.findViewById<TextView>(R.id.count)
     }
 

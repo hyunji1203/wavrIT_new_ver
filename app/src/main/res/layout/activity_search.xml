@@ -4,33 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="16dp"
-    tools:context=".search.SearchActivity">
-
-    <TextView
-        android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/notosanskr_regular"
-        android:text="검색"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/s_search_btn" />
+    tools:context=".search.SearchActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filledTextField"
 
-        android:layout_width="266dp"
+        android:layout_width="280dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:hint="검색어를 입력해주세요"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
-        app:layout_constraintTop_toBottomOf="@+id/s_back_btn">
+        app:layout_constraintStart_toEndOf="@+id/s_back_btn"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit"
@@ -47,31 +36,11 @@
         android:id="@+id/s_back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icn_x_20x20" />
-
-    <ImageView
-        android:id="@+id/s_mypage_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/s_search_btn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_gray" />
-
-    <ImageView
-        android:id="@+id/s_search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_gray" />
+        app:srcCompat="@drawable/back_gray" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -93,28 +62,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosanskr_regular"
                 android:text="최근 검색어"
                 android:textColor="#040404"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 tools:layout_weight="1.5" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/all_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
+                android:fontFamily="@font/notosanskr_bold"
                 android:rotationX="0"
                 android:text="전체 삭제"
                 android:textAlignment="textEnd"
                 android:textColor="#737373"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:layout_weight="0.5" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recyclerview_s"
             android:layout_width="match_parent"
-            android:layout_height="201dp" />
+            android:layout_height="200dp" />
 
     </LinearLayout>
 
@@ -141,15 +112,56 @@
         <TextView
             android:id="@+id/textView16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="실시간 인기 검색어" />
+            android:layout_height="32dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:text="  실시간 인기 검색어"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="최근 1시간 동안" />
+            android:fontFamily="@font/notosanskr_bold"
+            android:text="  최근 1시간 동안 가장 인기 있는 검색어예요" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Recyclerview_hot"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Recyclerview_hot"
+                android:layout_width="340dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_gray" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

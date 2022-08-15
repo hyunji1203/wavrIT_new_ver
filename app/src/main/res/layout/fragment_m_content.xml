@@ -26,20 +26,24 @@
                 android:id="@+id/c_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
                 android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text="TextView"
                 android:textColor="#000000"
-                android:textSize="34sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/c_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
                 android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text="TextView"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 

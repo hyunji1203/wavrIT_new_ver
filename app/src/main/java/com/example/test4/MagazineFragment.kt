@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
 import com.example.test4.adapter.ViewPagerAdapter_magazine
@@ -15,11 +16,11 @@ import com.example.test4.magazine.*
 
 class MagazineFragment : Fragment() {
 
-    lateinit var ourtown_btn : ImageButton
-    lateinit var job_btn : ImageButton
-    lateinit var health_btn : ImageButton
-    lateinit var activity_btn : ImageButton
-    lateinit var knowledge_btn : ImageButton
+    lateinit var ourtown_btn : ImageView
+    lateinit var job_btn : ImageView
+    lateinit var health_btn : ImageView
+    lateinit var activity_btn : ImageView
+    lateinit var knowledge_btn : ImageView
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,12 +39,12 @@ class MagazineFragment : Fragment() {
         viewPager_magazine.adapter = pagerAdapter_middle
 
         // 옆으로 넘어갈 때 이미지가 어떻게 보이는지 설정
-        val dpValue: Int = 80
+        val dpValue: Int = 50
         val d: Float = getResources().getDisplayMetrics().density
         val margin: Int = dpValue * d.toInt()
         viewPager_magazine.setClipToPadding(false)
         viewPager_magazine.setPadding(margin, 0, margin, 0);
-        viewPager_magazine.setPageMargin(60);
+        viewPager_magazine.setPageMargin(30);
 
         ourtown_btn.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()

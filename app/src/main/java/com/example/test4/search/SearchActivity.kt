@@ -4,23 +4,15 @@ import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.test4.Data
+import com.example.test4.MainActivity
 import com.example.test4.R
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 
 class SearchActivity : AppCompatActivity() {
@@ -37,19 +29,55 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         var s_back_btn = findViewById<ImageView>(R.id.s_back_btn)
-        var search_btn = findViewById<TextView>(R.id.search_btn)
+        var search_btn = findViewById<ImageView>(R.id.search_btn)
+        var all_delete = findViewById<TextView>(R.id.all_delete)
 
         val Recyclerview_s = findViewById<RecyclerView>(R.id.Recyclerview_s)
+        val RecyclerView_hot = findViewById<RecyclerView>(R.id.Recyclerview_hot)
 
-
+        var word : String = "word"
 
         var filledTextField : TextInputLayout = findViewById(R.id.filledTextField)
 
-        val textInputLayout = TextInputLayout(this)
+        //val textInputLayout = TextInputLayout(this)
+
+        all_delete.setOnClickListener {
+            sqlitedb = dbManager.writableDatabase
+            var table_name = "search_history"
+            sqlitedb.execSQL("delete from " + table_name)
+
+            var intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
 
         search_btn.setOnClickListener {
+
             // Get input text
             val inputText = filledTextField.editText?.text.toString()
+
+            sqlitedb = dbManager.readableDatabase
+
+            var cursor : Cursor
+            cursor = sqlitedb.rawQuery("SELECT * FROM search_history WHERE word = '"+inputText+"';", null)
+
+            if (cursor.count > 0){
+                var x = 0
+
+                while (cursor.moveToNext()) {
+                    x = cursor.getInt((cursor.getColumnIndex("count")))
+                    x = x + 1
+                }
+
+                sqlitedb = dbManager.writableDatabase
+                sqlitedb.execSQL("UPDATE search_history SET count = '"+x+"' WHERE word = '"+inputText+"';")
+            }
+            else{
+                sqlitedb = dbManager.writableDatabase
+                sqlitedb.execSQL("INSERT INTO search_history VALUES ('" +inputText+ "', '" +1+ "')")
+            }
+
+            sqlitedb.close()
+            dbManager.close()
 
             var intent = Intent(this, Search_Result_Activity::class.java)
             intent.putExtra("searchword", inputText)
@@ -81,18 +109,23 @@ class SearchActivity : AppCompatActivity() {
 
         Recyclerview_s.adapter = searchAdapter(search_List)
 
-        //profileList3 디데이 작은 순으로 정렬하기기
-        /*profileList3.sortBy { it.value2 }
+        val search_hot: ArrayList<search_data> = ArrayList()
+        search_hot.addAll(search_List)
+
+        //실시간 인기 검색어 정렬하기
+        search_hot.sortBy {it.count }
+        search_hot.reverse()
 
         //Adapter를 활용하여 list와 XML 이어주기
-        rvs_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rvs_profile.setHasFixedSize(true)
+        RecyclerView_hot.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        RecyclerView_hot.setHasFixedSize(true)
 
-        rvs_profile.adapter = ProfileAdapter3(profileList3)*/
+        RecyclerView_hot.adapter = searchhotAdapter(search_hot)
 
 
         s_back_btn.setOnClickListener {
-            finish()
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

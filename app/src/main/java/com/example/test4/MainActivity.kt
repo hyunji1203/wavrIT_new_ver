@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.test4.community.CommunityFragment
+import com.example.test4.search.Exam
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout, HomeFragment())
         transaction.commit()
-
 
         // 커스텀 툴바 사용
         //toolbar_text = findViewById(R.id.toolbar_text)

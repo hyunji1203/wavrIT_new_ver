@@ -1,6 +1,7 @@
 package com.example.test4.search
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.test4.Data
+import com.example.test4.MainActivity
 import com.example.test4.R
-import com.example.test4.adapter.Ma_Adapter
 import com.example.test4.m_contentFragment
 
 class S_Adapter (private val context: Activity, searchword : String): RecyclerView.Adapter<S_Adapter.ViewHolder>() {
@@ -27,8 +28,8 @@ class S_Adapter (private val context: Activity, searchword : String): RecyclerVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        var view1: View?
-        var view2: View?
+        val view1: View?
+        val view2: View?
 
         return when (viewType) {
             1 -> {
@@ -36,13 +37,11 @@ class S_Adapter (private val context: Activity, searchword : String): RecyclerVi
                 ViewHolder(view2).apply {
                     itemView.setOnClickListener {
 
-                        var mContentfragment = m_contentFragment()
-                        var bundle = Bundle()
-                        bundle.putString("title", title_ex.text.toString())
-                        bundle.putString("content", content_ex.text.toString())
-                        bundle.putString("imageurl", imageurl.text.toString())
-                        mContentfragment.arguments =
-                            bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
+//                        var myExam = Exam(title_ex.text.toString(), content_ex.text.toString(), imageurl.text.toString(), 1)
+//
+//                        var intent = Intent(view2.context, m_contentFragment::class.java)
+//                        intent.putExtra("examKey", myExam)
+//                        view2.context.startActivity(intent)
 
                     }
                 }
@@ -52,17 +51,11 @@ class S_Adapter (private val context: Activity, searchword : String): RecyclerVi
                 ViewHolder(view1).apply {
                     itemView.setOnClickListener {
 
-                        var mContentfragment = m_contentFragment()
-                        var bundle = Bundle()
-                        bundle.putString("title", title_ex.text.toString())
-                        bundle.putString("content", content_ex.text.toString())
-                        bundle.putString("imageurl", imageurl.text.toString())
-                        mContentfragment.arguments =
-                            bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
-
-                        /*supportFragmentManager!!.beginTransaction()
-                            .replace(R.id.frameLayout, mContentfragment)
-                            .commit()*/
+//                        var myExam = Exam(title_ex.text.toString(), content_ex.text.toString(), imageurl.text.toString(), 1)
+//
+//                        var intent = Intent(view1.context, m_contentFragment::class.java)
+//                        intent.putExtra("examKey", myExam)
+//                        view1.context.startActivity(intent)
                     }
                 }
             }

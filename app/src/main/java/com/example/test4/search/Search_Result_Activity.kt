@@ -58,9 +58,8 @@ class Search_Result_Activity : AppCompatActivity() {
 
 
         s_back_btn.setOnClickListener {
-
-
-            finish()
+            var intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
         }
     }
     fun observerData(viewModel: ListViewModel_s){
