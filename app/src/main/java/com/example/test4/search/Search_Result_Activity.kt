@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -39,6 +40,7 @@ class Search_Result_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_search_result)
 
         var s_back_btn = findViewById<ImageView>(R.id.s_back_btn)
+        var word = findViewById<Button>(R.id.word)
 
         searchword = intent.getStringExtra("searchword").toString()
 
@@ -47,13 +49,17 @@ class Search_Result_Activity : AppCompatActivity() {
 
         s_adapter = S_Adapter(this, searchword)
 
-        val recyclerView : RecyclerView = findViewById(R.id.recyclerview)
+        word.text = searchword
+
+        val recyclerView : RecyclerView = findViewById(R.id.RecyclerView_sr)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = s_adapter
         observerData(viewModel)
 
 
         s_back_btn.setOnClickListener {
+
+
             finish()
         }
     }

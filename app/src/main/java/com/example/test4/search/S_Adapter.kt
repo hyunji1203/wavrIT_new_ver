@@ -112,7 +112,6 @@ class S_Adapter (private val context: Activity, searchword : String): RecyclerVi
             }
         }
         else{
-            jobList.removeAt(position)
             return 3
         }
     }

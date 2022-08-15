@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.test4.community.CommunityFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -43,6 +45,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 var intent = Intent(this, com.example.test4.search.SearchActivity::class.java)
 
                 startActivity(intent)
+            }
+            R.id.login -> {
             }
         }
         return super.onOptionsItemSelected(item)

@@ -14,13 +14,14 @@
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/background"
+        android:background="@color/white"
         android:hint="검색어를 입력해주세요"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
         app:layout_constraintTop_toBottomOf="@+id/s_back_btn">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/main_blue"
@@ -73,7 +74,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
