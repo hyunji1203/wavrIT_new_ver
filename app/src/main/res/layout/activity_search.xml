@@ -10,7 +10,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filledTextField"
 
-        android:layout_width="290dp"
+        android:layout_width="310dp"
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
@@ -18,7 +18,7 @@
         android:hint="검색어를 입력해주세요"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+        app:layout_constraintTop_toBottomOf="@+id/s_back_btn">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -41,27 +41,27 @@
         app:srcCompat="@drawable/search_gray" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/s_back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icn_x_20x20" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/s_mypage_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/s_search_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user_gray" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/s_search_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -71,7 +71,7 @@
         app:srcCompat="@drawable/search_gray" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
         android:orientation="vertical"
@@ -108,14 +108,10 @@
                 tools:layout_weight="0.5" />
         </LinearLayout>
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Recyclerview_s"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </ScrollView>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

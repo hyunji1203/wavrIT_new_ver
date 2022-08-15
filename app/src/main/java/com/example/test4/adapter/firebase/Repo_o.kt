@@ -14,7 +14,7 @@ class Repo_o {
 
         val mutableData = MutableLiveData<MutableList<Data>>()
         val database = Firebase.database
-        val myRef = database.getReference("town") //.child("")
+        val myRef = database.getReference("magazine").child("town")
 
         myRef.addValueEventListener(object : ValueEventListener {
 
