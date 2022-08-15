@@ -7,14 +7,26 @@
     android:padding="16dp"
     tools:context=".search.SearchActivity">
 
+    <TextView
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="검색"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/s_search_btn" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filledTextField"
 
-        android:layout_width="310dp"
-        android:layout_height="49dp"
+        android:layout_width="266dp"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
         android:hint="검색어를 입력해주세요"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toStartOf="@+id/search_btn"
@@ -23,23 +35,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/main_blue"
             android:padding="10dp"
             android:paddingLeft="15dp"
             android:paddingBottom="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search_gray" />
 
     <ImageView
         android:id="@+id/s_back_btn"
@@ -72,11 +74,11 @@
         app:srcCompat="@drawable/search_gray" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filledTextField">
@@ -112,8 +114,41 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recyclerview_s"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="201dp" />
 
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="실시간 인기 검색어" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="최근 1시간 동안" />
     </LinearLayout>
 
 
