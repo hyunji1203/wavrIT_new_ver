@@ -5,19 +5,16 @@
         android:id="@+id/action_home"
         android:enabled="true"
 
-        android:icon="@drawable/bar_h"
-        android:title="홈" />
+        android:icon="@drawable/bar_h" />
     <item
         android:id="@+id/action_community"
         android:enabled="true"
 
-        android:icon="@drawable/bar_c"
-        android:title="커뮤니티" />
+        android:icon="@drawable/bar_c" />
     <item
         android:id="@+id/action_magazine"
         android:enabled="true"
 
-        android:icon="@drawable/bar_m"
-        android:title="매거진" />
+        android:icon="@drawable/bar_m" />
 
 </menu>

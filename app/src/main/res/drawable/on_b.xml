@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="485dp"
+    android:height="777dp"
+    android:viewportWidth="360"
+    android:viewportHeight="760"
+
+    >
+
+    <group>
+
+        <clip-path
+            android:pathData="M0 0H360V760H0V0Z"
+            />
+
+        <group
+            android:translateX="0.198"
+            android:translateY="-0.359"
+            android:pivotX="180"
+            android:pivotY="380"
+            android:scaleX="3.923"
+            android:scaleY="2.704"
+            android:rotation="41.973"
+            >
+
+            <path
+                android:pathData="M0 0V760H360V0"
+                >
+
+                <aapt:attr name="android:fillColor">
+
+                    <gradient
+                        android:type="linear"
+                        android:startX="60"
+                        android:startY="380"
+                        android:endX="270"
+                        android:endY="380"
+                        >
+
+                        <item
+                            android:color="#693DE5"
+                            android:offset="0"
+                            />
+
+                        <item
+                            android:color="#443DE5"
+                            android:offset="0.356"
+                            />
+
+                        <item
+                            android:color="#3D62E5"
+                            android:offset="1"
+                            />
+
+                    </gradient>
+
+                </aapt:attr>
+
+            </path>
+
+        </group>
+
+    </group>
+
+</vector>
+
+
+
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        <item
+        android:startColor="#693DE5"
+        android:offset="0"
+        android:centerColor="#443DE5"
+        android:endColor="#3D62E5"
+        android:angle="230"/>
+
+</shape>-->
