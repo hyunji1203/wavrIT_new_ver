@@ -76,7 +76,7 @@ class JoinActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "환영합니다!", Toast.LENGTH_LONG).show()
 
-                        val intent = Intent(this, LoginActivity::class.java)
+                        val intent = Intent(this, IntroActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
 

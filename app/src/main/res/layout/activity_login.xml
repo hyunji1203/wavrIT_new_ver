@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="210dp"
         android:fontFamily="@font/notosanskr_regular"
         android:text="로그인을 해주세요"
         android:textColor="@color/white"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/notosanskr_bold"
         android:text="다시 오신 것을 환영합니다!"
         android:textColor="@color/white"
@@ -48,66 +48,94 @@
         android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="370dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/log_back"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_margin="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView9"
-        android:layout_margin="20dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosanskr_regular"
             android:text="이메일"
             android:textColor="#6F6F6F"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/emailArea"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/notosanskr_regular"
             android:hint="abc@gmail.com"
             android:textColor="@color/black"
             android:textColorHint="#6F6F6F"
-            android:textSize="20sp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="14sp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosanskr_regular"
             android:text="비밀번호"
             android:textColor="#6F6F6F"
-            android:textSize="20sp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/passwordArea"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/notosanskr_regular"
             android:hint="비밀번호 8-20자리"
+            android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="#6F6F6F"
-            android:textSize="20sp"
-            android:inputType="textPassword"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/loginBtn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/login_button" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/loginBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/login_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_regular"
+                android:text="로그인하기"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/loginBtn1"
+                app:layout_constraintEnd_toEndOf="@+id/loginBtn1"
+                app:layout_constraintStart_toStartOf="@+id/loginBtn1"
+                app:layout_constraintTop_toTopOf="@+id/loginBtn1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>
