@@ -8,11 +8,33 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="410dp"
-        android:layout_height="580dp"
+        android:layout_width="193dp"
+        android:layout_height="120dp"
         android:src="@drawable/recommend1"
+        app:layout_constraintEnd_toEndOf="@+id/reco1"
+        app:layout_constraintStart_toStartOf="@+id/reco1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/reco1"
+        android:layout_width="193dp"
+        android:layout_height="120dp"
+        android:src="@drawable/box_shadow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:text='"발달장애인 부모 성교육 프로그램"'
+        android:textColor="@color/background"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

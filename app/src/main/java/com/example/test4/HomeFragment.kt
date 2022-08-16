@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
 import com.example.test4.adapter.ViewPagerAdapter_home
 import com.example.test4.adapter.ViewPagerAdapter_home_recommend
 import com.example.test4.adapter.ViewPagerAdapter_magazine
+import com.example.test4.home.recommend.AddFragment
 
 
 class HomeFragment : Fragment() {
@@ -18,6 +21,9 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_home, container, false)
+
+        var add1 = view.findViewById<TextView>(R.id.add1)
+        var add2 = view.findViewById<ImageView>(R.id.add2)
 
         // viewpager 어댑터1
         val viewPager_home = view.findViewById<ViewPager>(R.id.viewPager_magazine)
@@ -42,12 +48,27 @@ class HomeFragment : Fragment() {
 
 
         // 추천 정보 옆으로 넘어갈 때 이미지가 어떻게 보이는지 설정
-        val dpValue2: Int = 20
+        val dpValue2: Int = 200
         val d2: Float = resources.displayMetrics.density
         val margin2: Int = dpValue2 * d2.toInt()
         viewPager_home_recommend.clipToPadding = false
-        viewPager_home_recommend.setPadding(margin2, 0, margin2, 0);
-        viewPager_home_recommend.pageMargin = 30
+        viewPager_home_recommend.setPadding(0, 0, margin2, 0);
+        viewPager_home_recommend.pageMargin = 50
+
+        add1.setOnClickListener {
+            var AddFragment = AddFragment()
+
+            activity?.supportFragmentManager!!.beginTransaction()
+                .replace(R.id.frameLayout, AddFragment)
+                .commit()
+        }
+        add2.setOnClickListener {
+            var AddFragment = AddFragment()
+
+            activity?.supportFragmentManager!!.beginTransaction()
+                .replace(R.id.frameLayout, AddFragment)
+                .commit()
+        }
 
         return view
     }
