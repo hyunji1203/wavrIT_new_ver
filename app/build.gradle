@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
@@ -72,4 +72,7 @@ dependencies {
 
     //editText
     implementation 'com.google.android.material:material:1.4.0'
+
+    //Auth
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }

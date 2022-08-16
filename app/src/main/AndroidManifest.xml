@@ -11,24 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test4">
-        <activity android:name=".community.BoardWriteActivity"/>
-        <activity android:name=".search.Search_Result_Activity" />
-        <activity android:name=".search.SearchActivity" />
-        <activity android:name=".onBoard">
+        <activity android:name=".Auth.SplachActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".Auth.LoginActivity" />
+        <activity android:name=".Auth.JoinActivity" />
+        <activity android:name=".Auth.IntroActivity" />
+        <activity android:name=".community.BoardWriteActivity" />
+        <activity android:name=".search.Search_Result_Activity" />
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".onBoard" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

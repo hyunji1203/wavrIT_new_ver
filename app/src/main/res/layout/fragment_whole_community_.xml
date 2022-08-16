@@ -3,12 +3,506 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".community.whole_community_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F0F0F2">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="추천 커뮤니티"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="님이 좋아하실만한 커뮤니티예요!"
+                android:layout_marginLeft="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:id="@+id/re_townBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="20dp"/>
+
+                <ImageView
+                    android:id="@+id/re_disBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/re_jobBtn"
+                    app:layout_constraintStart_toEndOf="@+id/re_townBtn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/re_jobBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:id="@+id/re_towntext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우리동네"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_townBtn"
+                    app:layout_constraintEnd_toEndOf="@+id/re_townBtn"
+                    app:layout_constraintStart_toStartOf="@+id/re_townBtn"
+                    app:layout_constraintTop_toTopOf="@+id/re_townBtn"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/re_distext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지체장애"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_disBtn"
+                    app:layout_constraintEnd_toEndOf="@+id/re_disBtn"
+                    app:layout_constraintStart_toStartOf="@+id/re_disBtn"
+                    app:layout_constraintTop_toTopOf="@+id/re_disBtn"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/re_jobtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="취업"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_jobBtn"
+                    app:layout_constraintEnd_toEndOf="@+id/re_jobBtn"
+                    app:layout_constraintStart_toStartOf="@+id/re_jobBtn"
+                    app:layout_constraintTop_toTopOf="@+id/re_jobBtn"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <TextView
+                android:id="@+id/dis_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="장애별"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="장애 유형별 커뮤니티를 들어가볼까요?"
+                android:layout_marginLeft="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/b_"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="20dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/br_"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="신체장애"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="지체장애"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView6"
+                    app:layout_constraintStart_toStartOf="@+id/imageView6"
+                    app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/theme_text"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="주제별"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="카테고리별로 원하는 정보만 모아보세요!"
+                android:layout_marginLeft="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ourtown_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:src="@drawable/r_t"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/job_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/r_j"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/health_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/r_h"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ourtown_btn" />
+
+                <ImageView
+                    android:id="@+id/activity_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/rr_a"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/job_btn" />
+
+                <ImageView
+                    android:id="@+id/knowledge_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/r_k"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/health_btn" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="우리 동네"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ourtown_btn"
+                    app:layout_constraintEnd_toEndOf="@+id/ourtown_btn"
+                    app:layout_constraintTop_toTopOf="@+id/ourtown_btn"
+                    app:layout_constraintVertical_bias="0.41" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="성교육"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/knowledge_btn"
+                    app:layout_constraintEnd_toEndOf="@+id/knowledge_btn"
+                    app:layout_constraintTop_toTopOf="@+id/knowledge_btn" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="임신, 출산,\n육아"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activity_btn"
+                    app:layout_constraintEnd_toEndOf="@+id/activity_btn"
+                    app:layout_constraintTop_toTopOf="@+id/activity_btn" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="건강"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/health_btn"
+                    app:layout_constraintEnd_toEndOf="@+id/health_btn"
+                    app:layout_constraintTop_toTopOf="@+id/health_btn" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="취업"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/job_btn"
+                    app:layout_constraintEnd_toEndOf="@+id/job_btn"
+                    app:layout_constraintTop_toTopOf="@+id/job_btn"
+                    app:layout_constraintVertical_bias="0.41" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/townText"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:text="지역별"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="내 동네의 커뮤니티에 들어가볼까요?"
+                android:layout_marginLeft="20dp"/>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/re_Seoul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeong"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="20dp"/>
+
+                <ImageView
+                    android:id="@+id/re_Gyeong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintEnd_toStartOf="@+id/re_Gang"
+                    app:layout_constraintStart_toEndOf="@+id/re_Seoul"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/re_Gang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="20dp"/>
+
+                <ImageView
+                    android:id="@+id/re_Jeon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Seoul"
+                    android:layout_marginLeft="20dp"/>
+
+                <ImageView
+                    android:id="@+id/re_Gyeongs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintEnd_toStartOf="@+id/re_Chung"
+                    app:layout_constraintStart_toEndOf="@+id/re_Jeon"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Gyeong" />
+
+                <ImageView
+                    android:id="@+id/re_Chung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Gang"
+                    android:layout_marginRight="20dp"/>
+
+                <ImageView
+                    android:id="@+id/re_Jeju"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/c_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Jeon" />
+
+                <TextView
+                    android:id="@+id/re_SText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="서울시"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Seoul"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Seoul"
+                    app:layout_constraintStart_toStartOf="@+id/re_Seoul"
+                    app:layout_constraintTop_toTopOf="@+id/re_Seoul" />
+
+                <TextView
+                    android:id="@+id/re_GText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="경기도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeong"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Gyeong"
+                    app:layout_constraintStart_toStartOf="@+id/re_Gyeong"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/re_G1Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="강원도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Gang"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Gang"
+                    app:layout_constraintStart_toStartOf="@+id/re_Gang"
+                    app:layout_constraintTop_toTopOf="@+id/re_Gang" />
+
+                <TextView
+                    android:id="@+id/re_JrText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="전라도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Jeon"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Jeon"
+                    app:layout_constraintStart_toStartOf="@+id/re_Jeon"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Seoul" />
+
+                <TextView
+                    android:id="@+id/re_GsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="경상도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeongs"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Gyeongs"
+                    app:layout_constraintStart_toStartOf="@+id/re_Gyeongs"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Gyeong" />
+
+                <TextView
+                    android:id="@+id/re_CcText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="충청도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Chung"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Chung"
+                    app:layout_constraintStart_toStartOf="@+id/re_Chung"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Gang" />
+
+                <TextView
+                    android:id="@+id/re_JjText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="제주도"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/re_Jeju"
+                    app:layout_constraintEnd_toEndOf="@+id/re_Jeju"
+                    app:layout_constraintStart_toStartOf="@+id/re_Jeju"
+                    app:layout_constraintTop_toBottomOf="@+id/re_Jeon" />
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
