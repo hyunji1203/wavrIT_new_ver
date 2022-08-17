@@ -38,7 +38,7 @@ class whole_community_Fragment : Fragment() {
         }
         job_btn.setOnClickListener {
             activity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.frameLayout, C_JobFragment()).addToBackStack(null)
+                .replace(R.id.frameLayout, Community_ListFragment()).addToBackStack(null)
                 .commit()
         }
         health_btn.setOnClickListener {
