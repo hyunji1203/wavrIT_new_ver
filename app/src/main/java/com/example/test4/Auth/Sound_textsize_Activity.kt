@@ -1,11 +1,13 @@
 package com.example.test4.Auth
 
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.test4.MainActivity
 import com.example.test4.R
+import com.example.test4.search.DBManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
@@ -18,6 +20,10 @@ class Sound_textsize_Activity : AppCompatActivity() {
 
     lateinit var database : FirebaseDatabase
     lateinit var databaseReference : DatabaseReference
+
+    /*//데이터 베이스 사용을 위해 변수 선언
+    lateinit var dbManager : DBManager
+    lateinit var sqlitedb : SQLiteDatabase*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +41,9 @@ class Sound_textsize_Activity : AppCompatActivity() {
 
             databaseReference.setValue("14")
 
+           /* sqlitedb = dbManager.writableDatabase
+            sqlitedb.execSQL("INSERT INTO user_filter VALUES ('" +key+ "', '" +14+ "','" +0+ "')")*/
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -46,6 +55,10 @@ class Sound_textsize_Activity : AppCompatActivity() {
             databaseReference = database.getReference("users").child(key).child("sound")
 
             databaseReference.setValue(1)
+
+            /*dbManager = DBManager(this, "user_filter", null, 1)
+            sqlitedb = dbManager.writableDatabase
+            sqlitedb.execSQL("INSERT INTO user_filter VALUES ('" +key+ "', '" +14+ "','" +1+ "')")*/
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

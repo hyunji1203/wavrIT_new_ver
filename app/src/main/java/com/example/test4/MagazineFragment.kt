@@ -1,8 +1,12 @@
 package com.example.test4
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.speech.SpeechRecognizer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +19,22 @@ import androidx.viewpager.widget.ViewPager
 import com.example.test4.adapter.ViewPagerAdapter_magazine
 import com.example.test4.magazine.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
-class MagazineFragment : Fragment() {
+class MagazineFragment : Fragment(), TextToSpeech.OnInitListener {
 
     lateinit var auth: FirebaseAuth
+    val database = Firebase.database
+
+    private var tts: TextToSpeech? = null
+    private var speechRecognizer: SpeechRecognizer? = null
+    private val REQUEST_CODE = 1
+
 
     lateinit var ourtown_btn : ImageView
     lateinit var job_btn : ImageView
@@ -38,7 +54,19 @@ class MagazineFragment : Fragment() {
         activity_btn = view.findViewById(R.id.activity_btn)
         knowledge_btn = view.findViewById(R.id.knowledge_btn)
 
+        var textView2 = view.findViewById<TextView>(R.id.textView2)
+        var textView = view.findViewById<TextView>(R.id.textView)
+        var textView4 = view.findViewById<TextView>(R.id.textView4)
+        var textView5 = view.findViewById<TextView>(R.id.textView5)
+        var textView18 = view.findViewById<TextView>(R.id.textView18)
+        var textView19 = view.findViewById<TextView>(R.id.textView19)
+        var textView20 = view.findViewById<TextView>(R.id.textView20)
+        var textView21 = view.findViewById<TextView>(R.id.textView21)
+        var textView22 = view.findViewById<TextView>(R.id.textView22)
+
         var id = view.findViewById<TextView>(R.id.mypage_id)
+
+        var sy2 = view.findViewById<TextView>(R.id.sy2)
 
         var x = auth.currentUser?.email.toString()
         x += " 님의\n맞춤 매거진을 보여드릴께요"
@@ -91,6 +119,60 @@ class MagazineFragment : Fragment() {
             transaction?.commit()
         }
 
+        var key = auth.currentUser?.uid.toString()
+
+        var myRef1 = database.getReference("users").child(key).child("sound")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef1.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy2.text = value.toString()
+                var a = sy2.text
+
+                if (a == "1"){
+                    id.setOnClickListener{tts!!.speak(id.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView.setOnClickListener{tts!!.speak(textView.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView2.setOnClickListener{tts!!.speak(textView2.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView4.setOnClickListener{tts!!.speak(textView4.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView5.setOnClickListener{tts!!.speak(textView5.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView18.setOnClickListener{tts!!.speak(textView18.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView19.setOnClickListener{tts!!.speak(textView19.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView20.setOnClickListener{tts!!.speak(textView20.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView21.setOnClickListener{tts!!.speak(textView21.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView22.setOnClickListener{tts!!.speak(textView22.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+        // tts에 TextToSpeech 값 넣어줌
+        tts = TextToSpeech(view.context, this)
+
+        //tts!!.speak(textView9.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")
+
         return view
+    }
+
+    // TextToSpeech override 함수
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale.KOREA)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {} else {}} else {}
+    }
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        if (speechRecognizer != null) {
+            speechRecognizer!!.stopListening()
+        }
+        super.onDestroy()
     }
 }

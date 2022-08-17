@@ -68,7 +68,7 @@ class MypageActivity : AppCompatActivity() {
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                s = snapshot.getValue().toString()
+                val x = snapshot.getValue().toString()
             }
             override fun onCancelled(error: DatabaseError) {} })
 

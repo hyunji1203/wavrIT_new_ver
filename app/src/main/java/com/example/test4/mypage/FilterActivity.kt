@@ -23,18 +23,18 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-class FilterActivity : AppCompatActivity() { //, TextToSpeech.OnInitListener {
+class FilterActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    //lateinit var example : TextView
+    lateinit var example : TextView
 
     private lateinit var auth: FirebaseAuth
 
     lateinit var database : FirebaseDatabase
     lateinit var databaseReference : DatabaseReference
 
-    /*private var tts: TextToSpeech? = null
+    private var tts: TextToSpeech? = null
     private var speechRecognizer: SpeechRecognizer? = null
-    private val REQUEST_CODE = 1*/
+    private val REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,26 +65,27 @@ class FilterActivity : AppCompatActivity() { //, TextToSpeech.OnInitListener {
             }
         }
 
-        /*example = findViewById(R.id.example)
+        example = findViewById(R.id.example)
 
         // permission 확인
-        if (Build.VERSION.SDK_INT >= 23)
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.INTERNET, Manifest.permission.RECORD_AUDIO), REQUEST_CODE)
+        //if (Build.VERSION.SDK_INT >= 23)
+        //    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.INTERNET, Manifest.permission.RECORD_AUDIO), REQUEST_CODE)
 
         // tts에 TextToSpeech 값 넣어줌
         tts = TextToSpeech(this, this)
 
         // TTSButton 클릭시 startTTS() 함수 실행
-        example.setOnClickListener { startTTS() }*/
+        example.setOnClickListener { tts!!.speak(example.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}//startTTS() }
+
 
 
     }
 
 
-    /*// TTS 예제
-    private fun startTTS() {
+    // TTS 예제
+    /*private fun startTTS() {
         tts!!.speak(example.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")
-    }
+    }*/
 
     // TextToSpeech override 함수
     override fun onInit(status: Int) {
@@ -116,5 +117,5 @@ class FilterActivity : AppCompatActivity() { //, TextToSpeech.OnInitListener {
         }
 
         super.onDestroy()
-    }*/
+    }
 }

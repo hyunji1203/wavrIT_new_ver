@@ -1,7 +1,11 @@
 package com.example.test4
 
+import android.content.ContentValues
 import android.os.Build
 import android.os.Bundle
+import android.speech.SpeechRecognizer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,24 +16,56 @@ import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
 import com.example.test4.adapter.ViewPagerAdapter_home
 import com.example.test4.adapter.ViewPagerAdapter_home_recommend
-import com.example.test4.adapter.ViewPagerAdapter_magazine
+import com.example.test4.adapter.firebase.getValue
 import com.example.test4.home.recommend.AddFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
     lateinit var auth: FirebaseAuth
+
+    private var tts: TextToSpeech? = null
+    private var speechRecognizer: SpeechRecognizer? = null
+    private val REQUEST_CODE = 1
+
+    lateinit var textView9 : TextView
+    lateinit var textView11 : TextView
+    lateinit var textView12 : TextView
+    lateinit var textView29 : TextView
+    lateinit var textView26 : TextView
+    lateinit var textView27 : TextView
+    lateinit var textView28 : TextView
+    lateinit var textView31 : TextView
+    lateinit var add1 : TextView
+    lateinit var add2 : ImageView
+
+    val database = Firebase.database
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_home, container, false)
 
-        var add1 = view.findViewById<TextView>(R.id.add1)
-        var add2 = view.findViewById<ImageView>(R.id.add2)
+        add1 = view.findViewById<TextView>(R.id.add1)
+        add2 = view.findViewById<ImageView>(R.id.add2)
+        textView9 = view.findViewById<TextView>(R.id.h1)
+        textView11 = view.findViewById<TextView>(R.id.textView11)
+        textView12 = view.findViewById<TextView>(R.id.textView12)
+        textView29 = view.findViewById<TextView>(R.id.textView29)
+        textView26 = view.findViewById<TextView>(R.id.textView26)
+        textView27 = view.findViewById<TextView>(R.id.textView27)
+        textView28 = view.findViewById<TextView>(R.id.textView28)
+        textView31 = view.findViewById<TextView>(R.id.textView31)
+        var sy = view.findViewById<TextView>(R.id.sy)
 
         var home_id = view.findViewById<TextView>(R.id.home_id)
 
         auth = FirebaseAuth.getInstance()
+        //database = FirebaseDatabase.getInstance()
 
         home_id.text = auth.currentUser?.email
 
@@ -78,7 +114,60 @@ class HomeFragment : Fragment() {
                 .commit()
         }
 
+        var key = auth.currentUser?.uid.toString()
+
+        var myRef1 = database.getReference("users").child(key).child("sound")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef1.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy.text = value.toString()
+                var a = sy.text
+
+                if (a == "1"){
+                    textView9.setOnClickListener{tts!!.speak(textView9.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView11.setOnClickListener{tts!!.speak(textView11.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView12.setOnClickListener{tts!!.speak(textView12.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView26.setOnClickListener{tts!!.speak(textView26.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView27.setOnClickListener{tts!!.speak(textView27.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView28.setOnClickListener{tts!!.speak(textView28.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView29.setOnClickListener{tts!!.speak(textView29.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView31.setOnClickListener{tts!!.speak(textView31.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    add1.setOnClickListener{tts!!.speak(add1.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+        // tts에 TextToSpeech 값 넣어줌
+        tts = TextToSpeech(view.context, this)
+
+        tts!!.speak(textView9.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")
+
         return view
+    }
+
+    // TextToSpeech override 함수
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale.KOREA)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {} else {}} else {}
+    }
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        if (speechRecognizer != null) {
+            speechRecognizer!!.stopListening()
+        }
+        super.onDestroy()
     }
 
 }

@@ -7,10 +7,10 @@ class user() {
 
     lateinit var town : String
     lateinit var type : String
-    var sound by Delegates.notNull<Int>()
-    var text by Delegates.notNull<Int>()
+    lateinit var sound : String
+    lateinit var text : String
 
-    constructor(town : String, type : String, sound : Int, text : Int) : this() {
+    constructor(town : String, type : String, sound : String, text : String) : this() {
         this.town = town
         this.type = type
         this.sound = sound
