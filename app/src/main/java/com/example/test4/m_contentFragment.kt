@@ -30,7 +30,7 @@ class m_contentFragment : Fragment(), onBackPressedListener {
         c_content.text = content.toString()
         c_title.text = title.toString()
 
-        c_content.setTextSize(Dimension.SP, 20F)
+        //c_content.setTextSize(Dimension.SP, 20F)
 
         Glide.with(this)
             .load(imageurl)

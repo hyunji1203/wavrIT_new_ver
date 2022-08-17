@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.test4.MainActivity
 import com.example.test4.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -60,12 +61,12 @@ class JoinActivity : AppCompatActivity() {
 
             // 비밀번호가 자릿수
             if (password1.length < 6) {
-                Toast.makeText(this, "6-20자리 사이의 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "8-20자리 사이의 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
                 isGoToJoin = false
             }
 
             if (password1.length > 20) {
-                Toast.makeText(this, "6-20자리 사이의 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "8-20자리 사이의 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show()
                 isGoToJoin = false
             }
 
@@ -76,7 +77,7 @@ class JoinActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "환영합니다!", Toast.LENGTH_LONG).show()
 
-                        val intent = Intent(this, IntroActivity::class.java)
+                        val intent = Intent(this, MainActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
 

@@ -41,11 +41,11 @@ class LoginActivity : AppCompatActivity() {
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
 
-                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "환영합니다!", Toast.LENGTH_LONG).show()
 
                     } else {
 
-                        Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "아이디와 비밀번호를 다시 한 번 확인해주세요.", Toast.LENGTH_LONG).show()
 
                     }
                 }
