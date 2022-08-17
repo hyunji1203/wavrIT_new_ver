@@ -38,6 +38,7 @@ class MypageActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         var move_fileter = findViewById<ImageView>(R.id.move_filter)
         var sy4 = findViewById<TextView>(R.id.sy4)
+        var sy9 = findViewById<TextView>(R.id.sy9)
 
         var textView6 = findViewById<TextView>(R.id.textView6)
         var textView24 = findViewById<TextView>(R.id.textView24)
@@ -104,9 +105,21 @@ class MypageActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             filter.text = "글자크기"
         }
 
+        var myRef2 = database.getReference("users").child(key).child("nickname")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef2.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy9.text = value.toString()
+                var a = sy9.text
 
-
-        id.text = auth.currentUser?.email
+                id.text = a
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
 
         var myRef1 = database.getReference("users").child(key).child("sound")
         //특정 데이터 값 갖고 오기!

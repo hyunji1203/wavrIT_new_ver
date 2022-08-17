@@ -49,7 +49,7 @@ class WhereActivity : AppCompatActivity() {
             database = FirebaseDatabase.getInstance()
             databaseReference = database.getReference("users").child(key).child("town")
 
-            databaseReference.setValue("서울")
+            databaseReference.setValue("서울시")
 
             val intent = Intent(this, TypeActivity::class.java)
             startActivity(intent)

@@ -34,12 +34,7 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
     private val REQUEST_CODE = 1
 
     lateinit var textView9 : TextView
-    lateinit var textView11 : TextView
-    lateinit var textView12 : TextView
     lateinit var textView29 : TextView
-    lateinit var textView26 : TextView
-    lateinit var textView27 : TextView
-    lateinit var textView28 : TextView
     lateinit var textView31 : TextView
     lateinit var add1 : TextView
     lateinit var add2 : ImageView
@@ -53,21 +48,17 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
         add1 = view.findViewById<TextView>(R.id.add1)
         add2 = view.findViewById<ImageView>(R.id.add2)
         textView9 = view.findViewById<TextView>(R.id.h1)
-        textView11 = view.findViewById<TextView>(R.id.textView11)
-        textView12 = view.findViewById<TextView>(R.id.textView12)
         textView29 = view.findViewById<TextView>(R.id.textView29)
-        textView26 = view.findViewById<TextView>(R.id.textView26)
-        textView27 = view.findViewById<TextView>(R.id.textView27)
-        textView28 = view.findViewById<TextView>(R.id.textView28)
         textView31 = view.findViewById<TextView>(R.id.textView31)
         var sy = view.findViewById<TextView>(R.id.sy)
+        var sy7 = view.findViewById<TextView>(R.id.sy7)
 
         var home_id = view.findViewById<TextView>(R.id.home_id)
 
         auth = FirebaseAuth.getInstance()
         //database = FirebaseDatabase.getInstance()
 
-        home_id.text = auth.currentUser?.email
+        //home_id.text = auth.currentUser?.email
 
         // viewpager 어댑터1
         val viewPager_home = view.findViewById<ViewPager>(R.id.viewPager_magazine)
@@ -116,6 +107,22 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
         var key = auth.currentUser?.uid.toString()
 
+        var myRef2 = database.getReference("users").child(key).child("nickname")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef2.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy7.text = value.toString()
+                var a = sy7.text
+
+                home_id.text = a
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
+
         var myRef1 = database.getReference("users").child(key).child("sound")
         //특정 데이터 값 갖고 오기!
         //리얼타임 데이터베이스 읽기
@@ -127,11 +134,6 @@ class HomeFragment : Fragment(), TextToSpeech.OnInitListener {
 
                 if (a == "1"){
                     textView9.setOnClickListener{tts!!.speak(textView9.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
-                    textView11.setOnClickListener{tts!!.speak(textView11.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
-                    textView12.setOnClickListener{tts!!.speak(textView12.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
-                    textView26.setOnClickListener{tts!!.speak(textView26.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
-                    textView27.setOnClickListener{tts!!.speak(textView27.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
-                    textView28.setOnClickListener{tts!!.speak(textView28.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
                     textView29.setOnClickListener{tts!!.speak(textView29.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
                     textView31.setOnClickListener{tts!!.speak(textView31.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
                     add1.setOnClickListener{tts!!.speak(add1.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}

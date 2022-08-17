@@ -24,7 +24,7 @@ class Magazine_thirdFragment : Fragment() {
                 bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
 
             activity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.frameLayout, mContentfragment)
+                .replace(R.id.frameLayout, mContentfragment).addToBackStack(null)
                 .commit()
         }
 

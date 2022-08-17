@@ -35,6 +35,19 @@
                     tools:visibility="gone" />
 
                 <TextView
+                    android:id="@+id/sy8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="49dp"
+                    android:layout_marginEnd="69dp"
+                    android:text="sy"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="gone" />
+
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="86dp"
                     android:fontFamily="@font/notosanskr_regular"
-                    android:text="콩콩이님의  \n맞춤 매거진을 보여드릴께요"
+                    android:text="님의  \n맞춤 매거진을 보여드릴께요"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"

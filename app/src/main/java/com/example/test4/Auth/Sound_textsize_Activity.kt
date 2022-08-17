@@ -44,7 +44,7 @@ class Sound_textsize_Activity : AppCompatActivity() {
            /* sqlitedb = dbManager.writableDatabase
             sqlitedb.execSQL("INSERT INTO user_filter VALUES ('" +key+ "', '" +14+ "','" +0+ "')")*/
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NicknameActivity::class.java)
             startActivity(intent)
         }
         soundable.setOnClickListener {
@@ -60,7 +60,7 @@ class Sound_textsize_Activity : AppCompatActivity() {
             sqlitedb = dbManager.writableDatabase
             sqlitedb.execSQL("INSERT INTO user_filter VALUES ('" +key+ "', '" +14+ "','" +1+ "')")*/
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NicknameActivity::class.java)
             startActivity(intent)
         }
 

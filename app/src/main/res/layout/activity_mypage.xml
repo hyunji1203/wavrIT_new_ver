@@ -59,6 +59,14 @@
             android:visibility="gone"
             tools:visibility="gone" />
 
+        <TextView
+            android:id="@+id/sy9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone"
+            tools:visibility="gone" />
+
         <ImageView
             android:id="@+id/imageView16"
             android:layout_width="100dp"

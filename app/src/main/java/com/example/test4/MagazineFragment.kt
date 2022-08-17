@@ -67,11 +67,7 @@ class MagazineFragment : Fragment(), TextToSpeech.OnInitListener {
         var id = view.findViewById<TextView>(R.id.mypage_id)
 
         var sy2 = view.findViewById<TextView>(R.id.sy2)
-
-        var x = auth.currentUser?.email.toString()
-        x += " 님의\n맞춤 매거진을 보여드릴께요"
-
-        id.text = x
+        var sy8 = view.findViewById<TextView>(R.id.sy8)
 
         // viewpager어댑터
         val viewPager_magazine = view.findViewById<ViewPager>(R.id.viewPager_magazine)
@@ -120,6 +116,24 @@ class MagazineFragment : Fragment(), TextToSpeech.OnInitListener {
         }
 
         var key = auth.currentUser?.uid.toString()
+
+        var myRef2 = database.getReference("users").child(key).child("nickname")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef2.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy8.text = value.toString()
+                var a = sy8.text
+
+                a = "$a 님의\n맞춤 매거진을 보여드릴께요"
+
+                id.text = a
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
 
         var myRef1 = database.getReference("users").child(key).child("sound")
         //특정 데이터 값 갖고 오기!
