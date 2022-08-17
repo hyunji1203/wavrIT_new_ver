@@ -10,17 +10,24 @@ import com.example.test4.MainActivity
 import com.example.test4.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
+    lateinit var database : FirebaseDatabase
+    lateinit var databaseReference : DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
 
         auth = Firebase.auth
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database.getReference("users")
 
         var joinBtn1 = findViewById<ImageView>(R.id.joinBtn1)
         var emailArea1 = findViewById<EditText>(R.id.emailArea1)
@@ -77,7 +84,13 @@ class JoinActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "환영합니다!", Toast.LENGTH_LONG).show()
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        var id = auth.currentUser?.uid
+                        val user = user("서울", "지체장애", sound = 0,text = 14)
+
+                        //Data Inserted
+                        databaseReference.child(id.toString()).setValue(user)
+
+                        val intent = Intent(this, WaitActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
 

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Auth.WhereActivity">
+
+    <Button
+        android:id="@+id/seoul"
+        android:layout_width="104dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="서울시"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gyeong" />
+
+    <Button
+        android:id="@+id/gyeong"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="경기도"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/incheon"
+        app:layout_constraintStart_toEndOf="@+id/seoul"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <Button
+        android:id="@+id/incheon"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="인천시"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gyeong" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:text="현재 거주하는 곳은 어디인가요?"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="106dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView20"
+        app:srcCompat="@drawable/onestep" />
+
+    <Button
+        android:id="@+id/sejong"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="세종시"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dejeon" />
+
+    <Button
+        android:id="@+id/dejeon"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="대전시"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/sejong"
+        app:layout_constraintStart_toEndOf="@+id/gangwon"
+        app:layout_constraintTop_toBottomOf="@+id/gyeong" />
+
+    <Button
+        android:id="@+id/gangwon"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="강원도"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dejeon" />
+
+    <Button
+        android:id="@+id/busan"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="부산시"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/c_north" />
+
+    <Button
+        android:id="@+id/c_north"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="충청북도"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/busan"
+        app:layout_constraintStart_toEndOf="@+id/c_south"
+        app:layout_constraintTop_toBottomOf="@+id/dejeon" />
+
+    <Button
+        android:id="@+id/c_south"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="충청남도"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/c_north" />
+
+    <Button
+        android:id="@+id/k_north"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="경상북도"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/k_south" />
+
+    <Button
+        android:id="@+id/k_south"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="경상남도"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/k_north"
+        app:layout_constraintStart_toEndOf="@+id/ulsan"
+        app:layout_constraintTop_toBottomOf="@+id/c_north" />
+
+    <Button
+        android:id="@+id/ulsan"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="울산시"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/k_south" />
+
+    <Button
+        android:id="@+id/daegu"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="대구시"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gwangju" />
+
+    <Button
+        android:id="@+id/j_south"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="전라남도"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gwangju" />
+
+    <Button
+        android:id="@+id/j_north"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="전라북도"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/jeju" />
+
+    <Button
+        android:id="@+id/gwangju"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="광주시"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/j_south"
+        app:layout_constraintStart_toEndOf="@+id/daegu"
+        app:layout_constraintTop_toBottomOf="@+id/k_south" />
+
+    <Button
+        android:id="@+id/jeju"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/where_btn"
+        android:fontFamily="@font/notosanskr_regular"
+        android:text="제주시"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/j_north"
+        app:layout_constraintTop_toBottomOf="@+id/gwangju" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

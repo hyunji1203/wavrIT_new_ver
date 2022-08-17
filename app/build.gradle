@@ -34,6 +34,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    //데이터바인딩 사용
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
