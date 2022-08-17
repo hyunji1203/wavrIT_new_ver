@@ -44,6 +44,7 @@ class CommunityFragment : Fragment() {
         var writeBtn = view.findViewById<ImageView>(R.id.writeBtn)
         var boardListView = view.findViewById<ListView>(R.id.boardListView)
 
+
         boardRVAdapter = BoardListLVAdapter(boardDataList)
         boardListView.adapter = boardRVAdapter
 

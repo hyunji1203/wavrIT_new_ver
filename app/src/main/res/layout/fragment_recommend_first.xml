@@ -7,7 +7,7 @@
     tools:context=".home.recommend.Recommend_firstFragment">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/c_mental"
         android:layout_width="193dp"
         android:layout_height="120dp"
         android:src="@drawable/recommend1"

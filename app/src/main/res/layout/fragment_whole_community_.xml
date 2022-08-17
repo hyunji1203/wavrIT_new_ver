@@ -15,325 +15,311 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#F0F0F2">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="46dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/notosanskr_bold"
-                android:text="추천 커뮤니티"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="님이 좋아하실만한 커뮤니티예요!"
-                android:layout_marginLeft="20dp"/>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp">
+                android:layout_height="match_parent"
+                android:background="@color/white">
 
-                <ImageView
-                    android:id="@+id/re_townBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="20dp"/>
-
-                <ImageView
-                    android:id="@+id/re_disBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/re_jobBtn"
-                    app:layout_constraintStart_toEndOf="@+id/re_townBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/re_jobBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginRight="20dp"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/re_towntext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="우리동네"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_townBtn"
-                    app:layout_constraintEnd_toEndOf="@+id/re_townBtn"
-                    app:layout_constraintStart_toStartOf="@+id/re_townBtn"
-                    app:layout_constraintTop_toTopOf="@+id/re_townBtn"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/re_distext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="지체장애"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_disBtn"
-                    app:layout_constraintEnd_toEndOf="@+id/re_disBtn"
-                    app:layout_constraintStart_toStartOf="@+id/re_disBtn"
-                    app:layout_constraintTop_toTopOf="@+id/re_disBtn"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"/>
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="10dp"
+                            android:text="실시간 인기글"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/re_jobtext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="취업"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_jobBtn"
-                    app:layout_constraintEnd_toEndOf="@+id/re_jobBtn"
-                    app:layout_constraintStart_toStartOf="@+id/re_jobBtn"
-                    app:layout_constraintTop_toTopOf="@+id/re_jobBtn"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"/>
+                        <ImageView
+                            android:id="@+id/imageView12"
+                            android:layout_width="20dp"
+                            android:layout_height="35dp"
+                            android:layout_weight="1"
+                            android:paddingTop="7dp"
+                            android:src="@drawable/fire" />
 
+                        <TextView
+                            android:id="@+id/c_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:paddingLeft="170dp"
+                            android:text="전체글 더보기"
+                            android:textColor="#6F6F6F" />
 
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:paddingLeft="20dp"
+                        android:text="지금 가장 많은 사람들이 보고있는 글이예요!"
+                        android:textColor="#6F6F6F" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp" />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-            <TextView
-                android:id="@+id/dis_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="46dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/notosanskr_bold"
-                android:text="장애별"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="장애 유형별 커뮤니티를 들어가볼까요?"
-                android:layout_marginLeft="20dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView3"
+                <TextView
+                    android:id="@+id/dis_Text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/b_"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="장애별"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="20dp"/>
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/br_"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/textView12"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="신체장애"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                    app:layout_constraintStart_toStartOf="@+id/imageView3"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:text="장애 유형별 커뮤니티를 들어가볼까요?"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dis_Text" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="지체장애"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                    app:layout_constraintStart_toStartOf="@+id/imageView6"
-                    app:layout_constraintTop_toTopOf="@+id/imageView6" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12">
 
+                    <ImageView
+                        android:id="@+id/c_body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/b_"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/c_mental"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="32dp"
+                        android:src="@drawable/br_"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="신체장애"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/c_body"
+                        app:layout_constraintStart_toStartOf="@+id/c_body"
+                        app:layout_constraintTop_toTopOf="@+id/c_body" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="정신장애"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/c_mental"
+                        app:layout_constraintStart_toStartOf="@+id/c_mental"
+                        app:layout_constraintTop_toTopOf="@+id/c_mental" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/theme_text"
-                android:layout_width="wrap_content"
-                android:layout_height="46dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/notosanskr_bold"
-                android:text="주제별"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="카테고리별로 원하는 정보만 모아보세요!"
-                android:layout_marginLeft="20dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/ourtown_btn"
+                <TextView
+                    android:id="@+id/theme_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:src="@drawable/r_t"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="주제별"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/job_btn"
+                <TextView
+                    android:id="@+id/textView26"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
-                    android:src="@drawable/r_j"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/health_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/r_h"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:text="카테고리별로 원하는 정보만 모아보세요!"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ourtown_btn" />
+                    app:layout_constraintTop_toBottomOf="@+id/theme_text" />
 
-                <ImageView
-                    android:id="@+id/activity_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
-                    android:src="@drawable/rr_a"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/job_btn" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView26">
 
-                <ImageView
-                    android:id="@+id/knowledge_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/r_k"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/health_btn" />
+                    <ImageView
+                        android:id="@+id/job_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/r_j"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="28dp"
-                    android:layout_marginBottom="3dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="우리 동네"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/ourtown_btn"
-                    app:layout_constraintEnd_toEndOf="@+id/ourtown_btn"
-                    app:layout_constraintTop_toTopOf="@+id/ourtown_btn"
-                    app:layout_constraintVertical_bias="0.41" />
+                    <ImageView
+                        android:id="@+id/health_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/r_h"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/job_btn" />
 
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="6dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="성교육"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/knowledge_btn"
-                    app:layout_constraintEnd_toEndOf="@+id/knowledge_btn"
-                    app:layout_constraintTop_toTopOf="@+id/knowledge_btn" />
+                    <ImageView
+                        android:id="@+id/activity_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/baby"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="14dp"
-                    android:layout_marginBottom="6dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="임신, 출산,\n육아"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/activity_btn"
-                    app:layout_constraintEnd_toEndOf="@+id/activity_btn"
-                    app:layout_constraintTop_toTopOf="@+id/activity_btn" />
+                    <ImageView
+                        android:id="@+id/knowledge_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/r_k"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/activity_btn" />
 
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:layout_marginBottom="6dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="건강"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/health_btn"
-                    app:layout_constraintEnd_toEndOf="@+id/health_btn"
-                    app:layout_constraintTop_toTopOf="@+id/health_btn" />
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="성교육"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/knowledge_btn"
+                        app:layout_constraintEnd_toEndOf="@+id/knowledge_btn"
+                        app:layout_constraintTop_toTopOf="@+id/knowledge_btn" />
 
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="취업"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/job_btn"
-                    app:layout_constraintEnd_toEndOf="@+id/job_btn"
-                    app:layout_constraintTop_toTopOf="@+id/job_btn"
-                    app:layout_constraintVertical_bias="0.41" />
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="임신, 출산,\n육아"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/activity_btn"
+                        app:layout_constraintEnd_toEndOf="@+id/activity_btn"
+                        app:layout_constraintTop_toTopOf="@+id/activity_btn" />
 
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="48dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="건강"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/health_btn"
+                        app:layout_constraintEnd_toEndOf="@+id/health_btn"
+                        app:layout_constraintTop_toTopOf="@+id/health_btn" />
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="48dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:text="취업"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/job_btn"
+                        app:layout_constraintEnd_toEndOf="@+id/job_btn"
+                        app:layout_constraintTop_toTopOf="@+id/job_btn"
+                        app:layout_constraintVertical_bias="0.41" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/townText"
-                android:layout_width="wrap_content"
-                android:layout_height="46dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/notosanskr_bold"
-                android:text="지역별"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:text="내 동네의 커뮤니티에 들어가볼까요?"
-                android:layout_marginLeft="20dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/townText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="지역별"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:text="내 동네의 커뮤니티에 들어가볼까요?"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/townText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -341,164 +327,96 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/re_Seoul"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeong"
+                    android:id="@+id/soodo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/c_box"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="20dp"/>
-
-                <ImageView
-                    android:id="@+id/re_Gyeong"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintEnd_toStartOf="@+id/re_Gang"
-                    app:layout_constraintStart_toEndOf="@+id/re_Seoul"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/re_Gang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginRight="20dp"/>
+                    android:id="@+id/ga_je"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/c_box"
+                    app:layout_constraintStart_toEndOf="@+id/soodo"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/re_Jeon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Seoul"
-                    android:layout_marginLeft="20dp"/>
+                    android:id="@+id/mid"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/c_box"
+                    app:layout_constraintStart_toEndOf="@+id/ga_je"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/re_Gyeongs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintEnd_toStartOf="@+id/re_Chung"
-                    app:layout_constraintStart_toEndOf="@+id/re_Jeon"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Gyeong" />
-
-                <ImageView
-                    android:id="@+id/re_Chung"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Gang"
-                    android:layout_marginRight="20dp"/>
-
-                <ImageView
-                    android:id="@+id/re_Jeju"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/c_btn"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Jeon" />
+                    android:id="@+id/south"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/c_box"
+                    app:layout_constraintStart_toEndOf="@+id/mid"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/re_SText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="서울시"
+                    android:layout_marginTop="27dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="수도권"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Seoul"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Seoul"
-                    app:layout_constraintStart_toStartOf="@+id/re_Seoul"
-                    app:layout_constraintTop_toTopOf="@+id/re_Seoul" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/soodo"
+                    app:layout_constraintStart_toStartOf="@+id/soodo"
+                    app:layout_constraintTop_toTopOf="@+id/soodo" />
 
                 <TextView
                     android:id="@+id/re_GText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="경기도"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="강원\n제주"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeong"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Gyeong"
-                    app:layout_constraintStart_toStartOf="@+id/re_Gyeong"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/ga_je"
+                    app:layout_constraintStart_toStartOf="@+id/ga_je"
+                    app:layout_constraintTop_toTopOf="@+id/ga_je" />
 
                 <TextView
                     android:id="@+id/re_G1Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="강원도"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="중부\n지방"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Gang"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Gang"
-                    app:layout_constraintStart_toStartOf="@+id/re_Gang"
-                    app:layout_constraintTop_toTopOf="@+id/re_Gang" />
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/mid"
+                    app:layout_constraintStart_toStartOf="@+id/mid"
+                    app:layout_constraintTop_toTopOf="@+id/mid" />
 
                 <TextView
                     android:id="@+id/re_JrText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="전라도"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="남부\n지방"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Jeon"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Jeon"
-                    app:layout_constraintStart_toStartOf="@+id/re_Jeon"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Seoul" />
-
-                <TextView
-                    android:id="@+id/re_GsText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="경상도"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Gyeongs"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Gyeongs"
-                    app:layout_constraintStart_toStartOf="@+id/re_Gyeongs"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Gyeong" />
-
-                <TextView
-                    android:id="@+id/re_CcText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="충청도"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Chung"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Chung"
-                    app:layout_constraintStart_toStartOf="@+id/re_Chung"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Gang" />
-
-                <TextView
-                    android:id="@+id/re_JjText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:text="제주도"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/re_Jeju"
-                    app:layout_constraintEnd_toEndOf="@+id/re_Jeju"
-                    app:layout_constraintStart_toStartOf="@+id/re_Jeju"
-                    app:layout_constraintTop_toBottomOf="@+id/re_Jeon" />
-
-
-
-
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/south"
+                    app:layout_constraintStart_toStartOf="@+id/south"
+                    app:layout_constraintTop_toTopOf="@+id/south" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

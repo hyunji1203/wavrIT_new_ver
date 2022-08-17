@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test4">
-        <activity android:name=".Auth.NicknameActivity"></activity>
+        <activity android:name=".board.BoardWriteActivity" />
+        <activity android:name=".board.BoardInsideActivity" />
+        <activity android:name=".board.BoardEditActivity" />
         <activity android:name=".Auth.Sound_textsize_Activity" />
+        <activity android:name=".Auth.NicknameActivity" />
         <activity android:name=".Auth.TypeActivity" />
         <activity android:name=".Auth.WhereActivity" />
         <activity android:name=".Auth.WaitActivity" />
