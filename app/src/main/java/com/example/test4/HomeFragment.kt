@@ -14,9 +14,11 @@ import com.example.test4.adapter.ViewPagerAdapter_home
 import com.example.test4.adapter.ViewPagerAdapter_home_recommend
 import com.example.test4.adapter.ViewPagerAdapter_magazine
 import com.example.test4.home.recommend.AddFragment
-
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
+
+    lateinit var auth: FirebaseAuth
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,6 +26,12 @@ class HomeFragment : Fragment() {
 
         var add1 = view.findViewById<TextView>(R.id.add1)
         var add2 = view.findViewById<ImageView>(R.id.add2)
+
+        var home_id = view.findViewById<TextView>(R.id.home_id)
+
+        auth = FirebaseAuth.getInstance()
+
+        home_id.text = auth.currentUser?.email
 
         // viewpager 어댑터1
         val viewPager_home = view.findViewById<ViewPager>(R.id.viewPager_magazine)

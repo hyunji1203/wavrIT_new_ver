@@ -10,25 +10,62 @@ import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
+import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.test4.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
-class FilterActivity : AppCompatActivity(),  TextToSpeech.OnInitListener {
+class FilterActivity : AppCompatActivity() { //, TextToSpeech.OnInitListener {
 
-    lateinit var example : TextView
+    //lateinit var example : TextView
 
-    private var tts: TextToSpeech? = null
+    private lateinit var auth: FirebaseAuth
+
+    lateinit var database : FirebaseDatabase
+    lateinit var databaseReference : DatabaseReference
+
+    /*private var tts: TextToSpeech? = null
     private var speechRecognizer: SpeechRecognizer? = null
-    private val REQUEST_CODE = 1
+    private val REQUEST_CODE = 1*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
-        example = findViewById(R.id.example)
+        var sound_switch = findViewById<Switch>(R.id.sound_switch)
+        var size_minus = findViewById<ImageView>(R.id.size_minus)
+        var size_plus = findViewById<ImageView>(R.id.size_plus)
+
+        sound_switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                auth = Firebase.auth
+                var key = auth.currentUser?.uid.toString()
+
+                database = FirebaseDatabase.getInstance()
+                databaseReference = database.getReference("users").child(key).child("sound")
+
+                databaseReference.setValue(1)
+            }
+            else {
+                auth = Firebase.auth
+                var key = auth.currentUser?.uid.toString()
+
+                database = FirebaseDatabase.getInstance()
+                databaseReference = database.getReference("users").child(key).child("sound")
+
+                databaseReference.setValue(0)
+            }
+        }
+
+        /*example = findViewById(R.id.example)
 
         // permission 확인
         if (Build.VERSION.SDK_INT >= 23)
@@ -38,13 +75,13 @@ class FilterActivity : AppCompatActivity(),  TextToSpeech.OnInitListener {
         tts = TextToSpeech(this, this)
 
         // TTSButton 클릭시 startTTS() 함수 실행
-        example.setOnClickListener { startTTS() }
+        example.setOnClickListener { startTTS() }*/
 
 
     }
 
 
-    // TTS 예제
+    /*// TTS 예제
     private fun startTTS() {
         tts!!.speak(example.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")
     }
@@ -79,5 +116,5 @@ class FilterActivity : AppCompatActivity(),  TextToSpeech.OnInitListener {
         }
 
         super.onDestroy()
-    }
+    }*/
 }

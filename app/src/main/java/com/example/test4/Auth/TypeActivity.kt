@@ -44,7 +44,7 @@ class TypeActivity : AppCompatActivity() {
             database = FirebaseDatabase.getInstance()
             databaseReference = database.getReference("users").child(key).child("type")
 
-            databaseReference.setValue("지체장애")
+            databaseReference.setValue("정신장애")
 
             val intent = Intent(this, Sound_textsize_Activity::class.java)
             startActivity(intent)

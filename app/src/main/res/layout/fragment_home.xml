@@ -44,11 +44,10 @@
                         android:id="@+id/textView10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="86dp"
                         android:fontFamily="@font/notosanskr_medium"
-                        android:text="안녕하세요 :D"
+                        android:text="님 안녕하세요 :D"
                         android:textColor="@color/white"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/home_id"
                         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
                     <ImageView
@@ -61,6 +60,17 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                    <TextView
+                        android:id="@+id/home_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="86dp"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:text="ID"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -50,11 +50,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="86dp"
                     android:fontFamily="@font/notosanskr_regular"
-                    android:text="맞춤 매거진을 보여드릴께요"
+                    android:text="콩콩이님의  \n맞춤 매거진을 보여드릴께요"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
                 <ImageView
                     android:id="@+id/imageView11"

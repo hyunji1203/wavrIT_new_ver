@@ -9,12 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.viewpager.widget.ViewPager
 import com.example.test4.adapter.ViewPagerAdapter_magazine
 import com.example.test4.magazine.*
+import com.google.firebase.auth.FirebaseAuth
 
 class MagazineFragment : Fragment() {
+
+    lateinit var auth: FirebaseAuth
 
     lateinit var ourtown_btn : ImageView
     lateinit var job_btn : ImageView
@@ -26,13 +30,22 @@ class MagazineFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_magazine, container, false)
 
+        auth = FirebaseAuth.getInstance()
+
         ourtown_btn = view.findViewById(R.id.ourtown_btn)
         job_btn = view.findViewById(R.id.job_btn)
         health_btn = view.findViewById(R.id.health_btn)
         activity_btn = view.findViewById(R.id.activity_btn)
         knowledge_btn = view.findViewById(R.id.knowledge_btn)
 
-        // viewpager 어댑터
+        var id = view.findViewById<TextView>(R.id.mypage_id)
+
+        var x = auth.currentUser?.email.toString()
+        x += " 님의\n맞춤 매거진을 보여드릴께요"
+
+        id.text = x
+
+        // viewpager어댑터
         val viewPager_magazine = view.findViewById<ViewPager>(R.id.viewPager_magazine)
         // 슬라이드를 위한 어댑터 설정
         val pagerAdapter_middle = ViewPagerAdapter_magazine(childFragmentManager)
