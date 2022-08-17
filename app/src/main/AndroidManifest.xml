@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Test4">
-        <activity android:name=".mypage.MypageActivity"></activity>
+        <activity android:name=".mypage.FilterActivity"></activity>
+        <activity android:name=".mypage.MypageActivity" />
         <activity android:name=".Auth.SplachActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

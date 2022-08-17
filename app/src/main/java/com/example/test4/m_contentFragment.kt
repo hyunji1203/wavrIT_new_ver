@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Dimension
 import com.bumptech.glide.Glide
 
 class m_contentFragment : Fragment(), onBackPressedListener {
@@ -28,6 +29,8 @@ class m_contentFragment : Fragment(), onBackPressedListener {
 
         c_content.text = content.toString()
         c_title.text = title.toString()
+
+        c_content.setTextSize(Dimension.SP, 20F)
 
         Glide.with(this)
             .load(imageurl)

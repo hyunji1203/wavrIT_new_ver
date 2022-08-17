@@ -56,11 +56,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 startActivity(intent)
             }
             R.id.login -> {
+                var intent = Intent(this, com.example.test4.mypage.MypageActivity::class.java)
+
+                startActivity(intent)
             }
-            /*android.R.id.home -> {
-                //toolbar의 back키 눌렀을 때 동작
-                finish()
-            }*/
         }
         return super.onOptionsItemSelected(item)
     }
