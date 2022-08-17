@@ -16,7 +16,7 @@ import com.example.test4.adapter.firebase.ListViewModel_a
 import com.example.test4.onBackPressedListener
 
 
-class Community_ListFragment : Fragment(), onBackPressedListener {
+class Community_ListFragment : Fragment(),onBackPressedListener {
 
     private lateinit var cl_adapter : Cl_Adapter
 

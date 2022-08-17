@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#F0F0F2">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -55,16 +56,6 @@
                             android:paddingTop="7dp"
                             android:src="@drawable/fire" />
 
-                        <TextView
-                            android:id="@+id/c_add"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/notosanskr_medium"
-                            android:paddingLeft="170dp"
-                            android:text="전체글 더보기"
-                            android:textColor="#6F6F6F" />
-
                     </LinearLayout>
 
                     <TextView
@@ -76,9 +67,68 @@
                         android:text="지금 가장 많은 사람들이 보고있는 글이예요!"
                         android:textColor="#6F6F6F" />
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <TextView
+                        android:id="@+id/textVied"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp" />
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:text="여성장애인을 우대하는 기업에서 드디어 연락이 왔어요!"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textVies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:text="#취업" />
+
+                    <TextView
+                        android:id="@+id/textViewsd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="320dp"
+                        android:paddingBottom="10dp"
+                        android:text="22.08.08" />
+
+                    <View
+                        android:id="@+id/dividesf"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        android:id="@+id/textViewg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:text="취업 박람회가 열린대요!! 여러분 이런거 잘 안 열려서 이번 기회다들..."
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textViewgas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:text="#취업" />
+
+                    <TextView
+                        android:id="@+id/textView4gg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="320dp"
+                        android:paddingBottom="10dp"
+                        android:text="22.08.11" />
+
+                    <View
+                        android:id="@+id/divider4ss"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
