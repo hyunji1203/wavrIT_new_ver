@@ -1,8 +1,12 @@
 package com.example.test4.mypage
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.SpeechRecognizer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
@@ -13,19 +17,32 @@ import com.example.test4.R
 import com.example.test4.search.SearchActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
-class MypageActivity : AppCompatActivity() {
+class MypageActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     lateinit var auth: FirebaseAuth
 
     lateinit var database : FirebaseDatabase
     lateinit var databaseReference : DatabaseReference
 
+    private var tts: TextToSpeech? = null
+    private var speechRecognizer: SpeechRecognizer? = null
+    private val REQUEST_CODE = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
 
         var move_fileter = findViewById<ImageView>(R.id.move_filter)
+        var sy4 = findViewById<TextView>(R.id.sy4)
+
+        var textView6 = findViewById<TextView>(R.id.textView6)
+        var textView24 = findViewById<TextView>(R.id.textView24)
+        var textView34 = findViewById<TextView>(R.id.textView34)
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -91,11 +108,58 @@ class MypageActivity : AppCompatActivity() {
 
         id.text = auth.currentUser?.email
 
+        var myRef1 = database.getReference("users").child(key).child("sound")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef1.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy4.text = value.toString()
+                var a = sy4.text
+
+                if (a == "1"){
+                    id.setOnClickListener{tts!!.speak(id.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView6.setOnClickListener{tts!!.speak(textView6.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView24.setOnClickListener{tts!!.speak(textView24.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    textView34.setOnClickListener{tts!!.speak(textView34.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    where.setOnClickListener{tts!!.speak(where.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    filter.setOnClickListener{tts!!.speak(filter.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                    type.setOnClickListener{tts!!.speak(type.text.toString(), TextToSpeech.QUEUE_FLUSH, null, "")}
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+        // tts에 TextToSpeech 값 넣어줌
+        tts = TextToSpeech(this, this)
+
 
         move_fileter.setOnClickListener {
             var intent = Intent(this, FilterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    // TextToSpeech override 함수
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale.KOREA)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {} else {}} else {}
+    }
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        if (speechRecognizer != null) {
+            speechRecognizer!!.stopListening()
+        }
+        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

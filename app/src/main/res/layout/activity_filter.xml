@@ -7,6 +7,22 @@
     android:background="@color/background"
     tools:context=".mypage.FilterActivity">
 
+    <TextView
+        android:id="@+id/sy5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/sy6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar3"
         android:layout_width="match_parent"
@@ -77,16 +93,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/example"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="81dp"
-        android:text="이건 테스트 용입니다. 과연 잘 될 지 모르겠네요. 하하하하"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="364dp"
@@ -127,12 +133,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:fontFamily="@font/notosanskr_bold"
-        android:text="14"
+        android:text="16"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView35"
@@ -154,8 +160,8 @@
         android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView37"
-        app:layout_constraintTop_toTopOf="@+id/textView37"
+        app:layout_constraintEnd_toStartOf="@+id/sp"
+        app:layout_constraintTop_toTopOf="@+id/sp"
         app:srcCompat="@drawable/minus" />
 
     <ImageView
@@ -164,7 +170,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintStart_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toTopOf="@+id/textView37"
+        app:layout_constraintStart_toEndOf="@+id/sp"
+        app:layout_constraintTop_toTopOf="@+id/sp"
         app:srcCompat="@drawable/plus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

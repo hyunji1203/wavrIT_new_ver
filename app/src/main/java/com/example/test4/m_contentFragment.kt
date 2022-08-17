@@ -60,6 +60,30 @@ class m_contentFragment : Fragment(), onBackPressedListener, TextToSpeech.OnInit
 
         var key = auth.currentUser?.uid.toString()
 
+        var myRef2 = database.getReference("users").child(key).child("text")
+        //특정 데이터 값 갖고 오기!
+        //리얼타임 데이터베이스 읽기
+        myRef2.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val value = datasnapshot?.value
+                sy3.text = value.toString()
+                var a = sy3.text
+
+                if (a == "24"){
+                    c_content.setTextSize(Dimension.SP, 24F)
+                }else if (a == "20"){
+                    c_content.setTextSize(Dimension.SP, 20F)
+                }else{
+                    c_content.setTextSize(Dimension.SP, 16F)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(ContentValues.TAG, "Failed to read value.", error.toException())
+            }
+        })
+
+
+
         var myRef1 = database.getReference("users").child(key).child("sound")
         //특정 데이터 값 갖고 오기!
         //리얼타임 데이터베이스 읽기

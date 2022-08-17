@@ -85,7 +85,7 @@ class JoinActivity : AppCompatActivity() {
                         Toast.makeText(this, "환영합니다!", Toast.LENGTH_LONG).show()
 
                         var id = auth.currentUser?.uid
-                        val user = user("서울", "지체장애", "0","14")
+                        val user = user("서울", "지체장애", "0","16")
 
                         //Data Inserted
                         databaseReference.child(id.toString()).setValue(user)
