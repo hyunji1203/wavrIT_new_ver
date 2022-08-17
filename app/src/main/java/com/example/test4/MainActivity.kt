@@ -1,15 +1,12 @@
 package com.example.test4
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.test4.community.CommunityFragment
-import com.example.test4.search.Exam
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -29,9 +26,21 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // 하단바 사용
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnNavigationItemSelectedListener(this)
+    }
+
+    override fun onBackPressed() {
+        var fragmentList = supportFragmentManager.fragments
+        for (frament in fragmentList){
+            if (frament is onBackPressedListener){
+                (frament as onBackPressedListener).onBackPressed()
+                return
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -48,6 +57,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.login -> {
             }
+            /*android.R.id.home -> {
+                //toolbar의 back키 눌렀을 때 동작
+                finish()
+            }*/
         }
         return super.onOptionsItemSelected(item)
     }

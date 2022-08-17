@@ -10,12 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.test4.MagazineFragment
 import com.example.test4.adapter.firebase.ListViewModel
 import com.example.test4.R
 import com.example.test4.adapter.Mh_Adapter
 import com.example.test4.adapter.firebase.ListViewModel_h
+import com.example.test4.onBackPressedListener
 
-class HealthFragment : Fragment() {
+class HealthFragment : Fragment(), onBackPressedListener {
 
     private lateinit var mh_adapter : Mh_Adapter
 
@@ -33,6 +35,15 @@ class HealthFragment : Fragment() {
         observerData(viewModel)
 
         return view
+    }
+
+    override fun onBackPressed() {
+        /*if (this is HomeFragment){
+            activity?.finish()
+        }*/
+
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     fun observerData(viewModel: ListViewModel_h){

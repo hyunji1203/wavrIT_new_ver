@@ -14,8 +14,9 @@ import com.example.test4.adapter.firebase.ListViewModel
 import com.example.test4.R
 import com.example.test4.adapter.Mo_Adapter
 import com.example.test4.adapter.firebase.ListViewModel_o
+import com.example.test4.onBackPressedListener
 
-class OurtownFragment : Fragment() {
+class OurtownFragment : Fragment(), onBackPressedListener {
 
     private lateinit var mo_adapter : Mo_Adapter
 
@@ -33,6 +34,11 @@ class OurtownFragment : Fragment() {
         observerData(viewModel)
 
         return view
+    }
+
+    override fun onBackPressed() {
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     fun observerData(viewModel: ListViewModel_o){

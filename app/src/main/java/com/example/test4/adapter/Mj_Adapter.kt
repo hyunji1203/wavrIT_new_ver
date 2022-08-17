@@ -43,7 +43,7 @@ class Mj_Adapter(private val context: Fragment): RecyclerView.Adapter<Mj_Adapter
                         mContentfragment.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
 
                         context.activity?.supportFragmentManager!!.beginTransaction()
-                            .replace(R.id.frameLayout, mContentfragment)
+                            .replace(R.id.frameLayout, mContentfragment).addToBackStack(null)
                             .commit()
                     }
                 }
@@ -65,7 +65,7 @@ class Mj_Adapter(private val context: Fragment): RecyclerView.Adapter<Mj_Adapter
                         mContentfragment.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
 
                         context.activity?.supportFragmentManager!!.beginTransaction()
-                            .replace(R.id.frameLayout, mContentfragment)
+                            .replace(R.id.frameLayout, mContentfragment).addToBackStack(null)
                             .commit()
                     }
                 }

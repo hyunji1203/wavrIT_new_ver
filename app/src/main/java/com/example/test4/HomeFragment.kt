@@ -59,14 +59,14 @@ class HomeFragment : Fragment() {
             var AddFragment = AddFragment()
 
             activity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.frameLayout, AddFragment)
+                .replace(R.id.frameLayout, AddFragment).addToBackStack(null)
                 .commit()
         }
         add2.setOnClickListener {
             var AddFragment = AddFragment()
 
             activity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.frameLayout, AddFragment)
+                .replace(R.id.frameLayout, AddFragment).addToBackStack(null)
                 .commit()
         }
 

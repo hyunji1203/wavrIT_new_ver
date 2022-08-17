@@ -13,8 +13,9 @@ import androidx.lifecycle.Observer
 import com.example.test4.adapter.firebase.ListViewModel
 import com.example.test4.adapter.Mj_Adapter
 import com.example.test4.R
+import com.example.test4.onBackPressedListener
 
-class JobFragment : Fragment() {
+class JobFragment : Fragment(), onBackPressedListener {
 
     private lateinit var mj_adapter : Mj_Adapter
 
@@ -32,6 +33,11 @@ class JobFragment : Fragment() {
         observerData(viewModel)
 
         return view
+    }
+
+    override fun onBackPressed() {
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     fun observerData(viewModel: ListViewModel){

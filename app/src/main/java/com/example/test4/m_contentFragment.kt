@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
-class m_contentFragment : Fragment() {
+class m_contentFragment : Fragment(), onBackPressedListener {
 
     lateinit var c_content : TextView
     lateinit var c_title : TextView
@@ -34,6 +34,15 @@ class m_contentFragment : Fragment() {
             .into(c_image)
 
         return view
+    }
+
+    override fun onBackPressed() {
+        /*if (this is HomeFragment){
+            activity?.finish()
+        }*/
+
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
 }

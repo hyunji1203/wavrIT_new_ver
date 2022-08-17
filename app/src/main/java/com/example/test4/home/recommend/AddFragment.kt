@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.test4.R
 import com.example.test4.adapter.Mj_Adapter
 import com.example.test4.adapter.firebase.ListViewModel
+import com.example.test4.onBackPressedListener
 
-class AddFragment : Fragment() {
+class AddFragment : Fragment(), onBackPressedListener {
 
     private lateinit var add_adapter : Add_Adapter
 
@@ -32,6 +33,11 @@ class AddFragment : Fragment() {
         observerData(viewModel)
 
         return view
+    }
+
+    override fun onBackPressed() {
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        fragmentManager?.popBackStack()
     }
 
     fun observerData(viewModel: ListViewModel_add){
